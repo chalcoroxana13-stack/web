@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roxana Albina Chalco Quesada | Organo Gold</title>
+  <meta name="description" content="Blog de Roxana Albina Chalco Quesada: café y té ORGANO GOLD. Conóceme, descubre los productos y contáctame para adquirirlos."/>
+  <meta name="theme-color" content="#4A2C2A"/>
+
+  <style>
+    :root{
+      --coffee:#4A2C2A;
+      --coffee-700:#3b2220;
+      --coffee-900:#241412;
+      --cream:#F3E9DC;
+      --paper:#fbf8f4;
+      --gold:#C8A15B;
+      --gold-700:#a3803e;
+      --green:#2C7A4B;
+      --red:#A9352A;
+      --ink:#1f1b16;
+      --muted:#6b5f57;
+      --card:#ffffffd9;
+      --glass:rgba(255,255,255,.65);
+      --shadow: 0 10px 30px rgba(0,0,0,.12);
+      --radius:18px;
+      --radius-sm:12px;
+      --radius-lg:26px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--paper),#efe7db 100%);color:var(--ink);font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:var(--coffee);text-decoration:none}
+    a:hover{color:var(--gold)}
+    .container{width:min(1100px,92vw);margin:0 auto}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(180deg,rgba(250,248,244,.85),rgba(250,248,244,.6));
+      border-bottom:1px solid #0001;
+    }
+    .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .bean{width:26px;height:26px;border-radius:50%;background:radial-gradient(110% 110% at 65% 35%, #6b3b34, var(--coffee));position:relative;box-shadow:inset 0 0 0 2px #0001}
+    .bean:after{content:"";position:absolute;left:50%;top:12%;bottom:12%;width:2px;background:#fff6;transform:translateX(-50%) rotate(6deg);border-radius:1px}
+    .menu{display:flex;gap:18px;flex-wrap:wrap}
+    .menu a{padding:8px 10px;border-radius:9px}
+    .menu a:hover{background:#00000008}
+
+    /* HERO */
+    .hero{
+      display:grid;grid-template-columns:360px 1fr;gap:28px;align-items:stretch;
+      padding:38px 0 24px;
+    }
+    .profile{
+      border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(180deg,#e9dfd0,#d1c0aa);
+      box-shadow: var(--shadow); position:relative;
+    }
+    .profile img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;filter:saturate(105%) contrast(102%)}
+    .badge{
+      position:absolute;left:14px;bottom:14px;background:var(--glass);backdrop-filter: blur(8px);
+      padding:10px 14px;border-radius:14px;border:1px solid #fff6;font-weight:700;display:flex;align-items:center;gap:10px;
+    }
+    .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px #2c7a4b22}
+
+    .intro{
+      border-radius:var(--radius-lg);padding:28px;background:linear-gradient(180deg,#ffffffb5,#ffffff80);
+      box-shadow: var(--shadow);display:flex;flex-direction:column;justify-content:center;gap:16px;
+      border:1px solid #fff8
+    }
+    .kicker{color:var(--gold-700);font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:.82rem}
+    h1{font-size:clamp(28px,3.5vw,42px);margin:0;color:var(--coffee-900);line-height:1.1}
+    .subtitle{color:var(--muted);font-size:1.05rem}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+    .btn{
+      border:none;cursor:pointer;padding:12px 18px;border-radius:14px;font-weight:700;
+      box-shadow: var(--shadow);transition:.2s transform,.2s box-shadow,.2s background,.2s color;
+    }
+    .btn-primary{background:linear-gradient(180deg,var(--coffee),#3a221f);color:#fff}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(74,44,42,.35)}
+    .btn-ghost{background:#00000006}
+    .btn-ghost:hover{transform:translateY(-2px)}
+
+    /* SECTIONS */
+    section{padding:42px 0}
+    .card{background:var(--card);backdrop-filter:saturate(120%) blur(2px);border:1px solid #fff8;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    h2{font-size:clamp(22px,3vw,32px);margin:0 0 16px 0;color:var(--coffee)}
+    .grid{display:grid;gap:18px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid.cols-2,.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}}
+    .prose p{margin:0 0 12px 0;line-height:1.65;color:#3a312c}
+    .highlight{background:linear-gradient(90deg,#fff4e2,#fff);border-left:4px solid var(--gold);padding:14px;border-radius:12px}
+
+    /* PRODUCTS */
+    .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+    .product{
+      border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow);border:1px solid #f0ece6;display:flex;flex-direction:column
+    }
+    .product .img{aspect-ratio:4/3;overflow:hidden;background:#f6f2ea}
+    .product .img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .product:hover .img img{transform:scale(1.04)}
+    .product .body{padding:14px 16px 16px}
+    .product h3{margin:0 0 6px 0;font-size:1.05rem;color:var(--coffee-900)}
+    .tag{display:inline-block;font-size:.78rem;background:#f7efe3;border:1px solid #e8dccb;padding:4px 8px;border-radius:999px;color:#6b584b}
+    .product .actions{display:flex;gap:8px;margin-top:12px}
+    .btn-small{padding:9px 12px;border-radius:12px;font-weight:700}
+    .btn-outline{background:#fff;border:1px solid #eadfcd}
+    .btn-outline:hover{background:#fff7e9;border-color:#e6d6b9}
+
+    /* CONTACT */
+    .contact-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .contact-item{display:flex;align-items:center;gap:12px;padding:14px;border:1px dashed #e5d8c7;border-radius:14px;background:#fff}
+    .icon{width:22px;height:22px;flex:0 0 22px;display:inline-block}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #eee0cc;padding:10px 12px;border-radius:999px}
+    .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+
+    /* FOOTER */
+    footer{padding:32px 0;color:#6a5b52}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .made{font-size:.9rem}
+    .socials{display:flex;gap:10px}
+
+    /* APPEAR ANIMATIONS */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* MODAL */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(20,10,5,.5);backdrop-filter: blur(3px);z-index:100}
+    .modal.open{display:grid}
+    .modal-card{width:min(900px,92vw);background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid #f0ece6}
+    .modal-body{display:grid;grid-template-columns:1fr 1.2fr}
+    .modal-body img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1}
+    .modal-content{padding:18px}
+    .close{border:none;background:#0000;font-size:24px;cursor:pointer;padding:6px 8px}
+    @media (max-width:860px){.modal-body{grid-template-columns:1fr}.modal-body img{aspect-ratio:4/3}}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container wrap">
+      <div class="brand">
+        <span class="bean" aria-hidden="true"></span>
+        <span>Roxana A. Chalco Q.</span>
+      </div>
+      <div class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Mi Historia</a>
+        <a href="#organo">¿Qué es ORGANO?</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="container hero">
+    <div class="profile reveal">
+      <!-- Reemplaza esta imagen por TU FOTO -->
+      <!-- OJO: si usas imagen tomada de organo, asegúrate de tener permiso -->
+      <img src="https://i.imgur.com/d2r2bsm.png" alt="Roxana Albina Chalco Quesada">
+      <div class="badge">
+        <span class="dot"></span> Disponible para asesorarte
+      </div>
+    </div>
+
+    <div class="intro reveal">
+      <div class="kicker">Organo Gold • Café & Té</div>
+      <h1>Hola, soy Roxana Albina Chalco Quesada</h1>
+      <p class="subtitle">Me dedico a llevarte experiencias premium de <strong>café y té ORGANO</strong>, con un trato cercano, envíos y asesoría personalizada. Aquí encontrarás mi historia, información de los productos y cómo contactarme.</p>
+      <div class="cta">
+        <a class="btn btn-primary" id="btnAdquirir" href="#" target="_blank" rel="noopener">Adquirir producto</a>
+        <a class="btn btn-ghost" href="#contacto">Contactar ahora</a>
+      </div>
+      <div class="pill" title="Atención">
+        <span class="dot"></span>
+        <span>Respondo por WhatsApp y Facebook</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HISTORIA -->
+  <section id="historia">
+    <div class="container card reveal prose">
+      <h2>Mi Historia</h2>
+      <p>Soy Roxana y descrubri ORGANO en el mejor momento de mi vida porque restauro mi salud, estaba pasando una fuerte depresión a raíz de un asalto sin saber que estaba embarazada ORGANO llegó en el mejor momento cambiando mi estilo de vida. <em>Salud y bienestar, Fisico Esperitual y Emocional y financiero
+      </em>
+      hoy en día sigo esta grande misión que es llevar los tesoros de la tierra a la gente del mundo, ofreciendo salud y bienestar, ayudando a muchas familias.
+      </p>
+      <p>Mi misión es ayudarte a elegir el producto ideal según tu gusto y estilo de vida, con un servicio honesto, rápido y acompañado de consejos de preparación para disfrutar cada taza.</p>
+      <div class="highlight">
+        <strong>¿Primer pedido?</strong> Escríbeme por WhatsApp y te guío paso a paso para elegir el mejor surtido de inicio.
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANO -->
+  <section id="organo">
+    <div class="container grid cols-2">
+      <div class="card reveal prose">
+        <h2>¿De qué trata ORGANO?</h2>
+        <p><strong>ORGANO</strong> es una marca de bebidas gourmet (cafés, tés y chocolate) reconocida por integrar ingredientes distintivos en sus mezclas. Su portafolio incluye opciones clásicas y especialidades.</p>
+        <p>Mi propuesta es acercarte estas bebidas con recomendaciones personalizadas, paquetes por gustos y seguimiento post-venta para que disfrutes una experiencia completa.</p>
+        <p style="font-size:.9rem;color:#6a5b52"><em>Nota:</em> Evito promesas de salud no comprobadas. Si tienes condiciones médicas o dudas, consulta con un profesional.</p>
+      </div>
+      <div class="card reveal prose">
+        <h2 id="beneficios">¿Para qué sirve el café?</h2>
+        <p>El café es una bebida apreciada por su sabor, aroma y por brindar <strong>energía y enfoque</strong> gracias a la cafeína. Muchas personas lo disfrutan en la mañana o antes de actividades que requieren concentración.</p>
+        <p>Además, es un ritual social y sensorial: elegir la mezcla, prepararlo y compartirlo convierte cada taza en un momento especial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos">
+    <div class="container">
+      <div class="card reveal">
+        <h2>Productos destacados</h2>
+        <div class="products" id="productsGrid">
+          <!-- Las tarjetas se llenan desde JS usando productData -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container card reveal">
+      <h2>Contacto</h2>
+      <p class="prose">Déjame un mensaje y coordino tu pedido. También puedo armarte un pack combinado.</p>
+      <div class="contact-list" id="contactList">
+        <!-- Se llena desde JS con tus datos -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div class="made">© <span id="year"></span> Roxana Albina Chalco Quesada — Blog personal de venta y asesoría.</div>
+      <div class="socials" id="footerSocials"></div>
+    </div>
+  </footer>
+
+  <!-- MODAL PRODUCTO -->
+  <div class="modal" id="productModal" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <div class="modal-head">
+        <strong id="modalTitle">Producto</strong>
+        <button class="close" id="modalClose" aria-label="Cerrar">×</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImg" alt="">
+        <div class="modal-content">
+          <p id="modalDesc" class="prose"></p>
+          <div class="cta" style="margin-top:12px">
+            <a class="btn btn-primary" id="modalBuy" target="_blank" rel="noopener">Adquirir este producto</a>
+            <a class="btn btn-ghost" href="#contacto">Consultar por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ICONOS (SVG inline para no depender de librerías) -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ic-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V11H8v3h2v7h3v-7h2.1l.9-3H13v-1.5c0-.28.22-.5.5-.5Z"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></symbol>
+    <symbol id="ic-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 3.5A10.5 10.5 0 0 0 3.1 17.9L2 22l4.2-1.1A10.5 10.5 0 1 0 20.5 3.5Zm-8 18a8.5 8.5 0 0 1-4.4-1.2l-.3-.2-2.6.7.7-2.5-.2-.3a8.5 8.5 0 1 1 7-4.5c.2.1.3.1.5.1 1 0 2.6-.9 3-1.9.2-.6-.1-1.4-.6-1.5l-1.5-.6c-.5-.2-1.1 0-1.3.5l-.6 1.4c-.3.6 0 1.4.6 1.6.3.1.6.2.9.3-.4.8-1.7 1.4-2.6 1.4-1.4 0-3.1-1.1-4.1-2.6-1-1.4-1.3-2.9-.8-3.7.5-.8 1.8-1.2 2.8-.8l.7.3c.5.2.8.8.7 1.3l-.3 1.1"/></symbol>
+    <symbol id="ic-link" viewBox="0 0 24 24"><path fill="currentColor" d="M3.9 12a4.6 4.6 0 0 1 4.6-4.6h3v2.3h-3a2.3 2.3 0 0 0 0 4.6h3v2.3h-3A4.6 4.6 0 0 1 3.9 12Zm11.6-4.6a4.6 4.6 0 1 1 0 9.2h-3v-2.3h3a2.3 2.3 0 1 0 0-4.6h-3V7.4h3Z"/></symbol>
+  </svg>
+
+<script>
+  // ========= CONFIGURA AQUÍ TUS DATOS =========
+  const profile = {
+    purchaseUrl: "https://caffedm.myorganogold.com/it-it/",
+    phone: "+39 351 670 8687",
+    whatsapp: "+39 351 670 8687",
+    email: "chalcoroxana13@gmail.com",
+    facebook: "https://www.facebook.com/franshesca.chalco",
+    greeting: "Hola Roxana, quiero más info de los productos ORGANO."
+  };
+
+  const productData = [
+    { id:"black", name:"Café Black", tag:"Intenso", img:"https://www.organogold.com/wp-content/uploads/2017/10/OGEU-Product-Thumbnails-2017_BlackCoffee.jpg", desc:"Sabor profundo y balanceado. Perfecto para quienes disfrutan el café sin leche." },
+    { id:"latte", name:"Café Latte", tag:"Cremoso", img:"https://www.organogold.com/wp-content/uploads/2017/10/OGEU-Product-Thumbnails-2017_Latte.jpg", desc:"Textura sedosa con notas lácteas. Ideal para tardes de relax." },
+    { id:"supreme", name:"Café Supreme", tag:"Suave", img:"https://www.organogold.com/wp-content/uploads/2017/11/OGEU-Product-Thumbnails-2017_SUPREME.jpg", desc:"Mezcla aromática y amable al paladar. Para un día largo pero ligero." },
+    { id:"mocha", name:"Café Mocha", tag:"Chocolatoso", img:"https://www.organogold.com/wp-content/uploads/2017/10/OGEU-Product-Thumbnails-2017_Mocha.jpg", desc:"Un toque de cacao para un capricho dulce sin perder el carácter del café." },
+    { id:"chocolate", name:"Chocolate", tag:"Gourmet", img:"https://www.organogold.com/wp-content/uploads/2017/10/HotCocoa_BS_EU_BackOffice.jpg", desc:"Bebida de chocolate reconfortante para toda la familia." },
+    { id:"verde", name:"Té Verde", tag:"Refrescante", img:"https://www.organogold.com/wp-content/uploads/2017/11/OGEU-Product-Thumbnails-2017_GreenTeaBoxSachet.jpg", desc:"Perfil vegetal y limpio. Excelente para acompañar comidas ligeras." },
+    { id:"rojo", name:"Té Rojo", tag:"Aromático", img:"https://www.organogold.com/wp-content/uploads/2017/11/OGEU-Product-Thumbnails-2017_RedTeaBoxSachet.jpg", desc:"Notas terrosas y cuerpo medio. Perfecto para tardes templadas." }
+  ];
+
+  const $ = (sel, ctx=document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+
+  function renderProducts(){
+    const grid = $("#productsGrid");
+    grid.innerHTML = productData.map(p => `
+      <article class="product reveal" data-id="${p.id}">
+        <div class="img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+        <div class="body">
+          <h3>${p.name}</h3>
+          <span class="tag">${p.tag}</span>
+          <p class="prose" style="margin-top:8px">${p.desc}</p>
+          <div class="actions">
+            <button class="btn btn-outline btn-small" data-open="${p.id}">Ver más</button>
+            <a class="btn btn-small" style="background:var(--gold);color:#241812" href="${profile.purchaseUrl}?producto=${encodeURIComponent(p.id)}" target="_blank" rel="noopener">Adquirir</a>
+          </div>
+        </div>
+      </article>
+    `).join("");
+    hookReveals(grid); // <-- Aquí enganchamos los nuevos productos
+  }
+
+  function renderContacts(){
+    const c = $("#contactList");
+    const wamsg = encodeURIComponent(profile.greeting || "Hola Roxana, quiero más info de los productos ORGANO.");
+    const waLink = `https://wa.me/${profile.whatsapp.replace(/[^\d]/g,"")}?text=${wamsg}`;
+    c.innerHTML = `
+      <div class="contact-item">
+        <span class="icon" style="color:#1a73e8"><svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg></span>
+        <div>
+          <div><strong>Correo</strong></div>
+          <a href="mailto:${profile.email}">${profile.email}</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="icon" style="color:#25D366"><svg viewBox="0 0 24 24"><use href="#ic-whatsapp"/></svg></span>
+        <div>
+          <div><strong>WhatsApp</strong></div>
+          <a href="${waLink}" target="_blank" rel="noopener">${profile.whatsapp}</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="icon" style="color:#1877f2"><svg viewBox="0 0 24 24"><use href="#ic-facebook"/></svg></span>
+        <div>
+          <div><strong>Facebook</strong></div>
+          <a href="${profile.facebook}" target="_blank" rel="noopener">${profile.facebook}</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="icon" style="color:#6b5f57"><svg viewBox="0 0 24 24"><use href="#ic-link"/></svg></span>
+        <div>
+          <div><strong>Teléfono</strong></div>
+          <a href="tel:${profile.phone}">${profile.phone}</a>
+        </div>
+      </div>
+    `;
+    $("#footerSocials").innerHTML = `
+      <a title="Facebook" href="${profile.facebook}" target="_blank" rel="noopener" class="pill"><svg class="icon" viewBox="0 0 24 24"><use href="#ic-facebook"/></svg> Facebook</a>
+      <a title="WhatsApp" href="${waLink}" target="_blank" rel="noopener" class="pill"><svg class="icon" viewBox="0 0 24 24"><use href="#ic-whatsapp"/></svg> WhatsApp</a>
+      <a title="Correo" href="mailto:${profile.email}" class="pill"><svg class="icon" viewBox="0 0 24 24"><use href="#ic-mail"/></svg> Email</a>
+    `;
+    hookReveals(c); // <-- Engancha también los contactos si tienen .reveal
+  }
+
+  // ========= MODAL =========
+  const modal = $("#productModal");
+  const modalTitle = $("#modalTitle");
+  const modalImg = $("#modalImg");
+  const modalDesc = $("#modalDesc");
+  const modalBuy = $("#modalBuy");
+  $("#modalClose").addEventListener("click", ()=>modal.classList.remove("open"));
+  modal.addEventListener("click", e => { if(e.target === modal) modal.classList.remove("open"); });
+
+  function onOpenProduct(id){
+    const p = productData.find(x=>x.id===id);
+    if(!p) return;
+    modalTitle.textContent = p.name;
+    modalImg.src = p.img;
+    modalImg.alt = p.name;
+    modalDesc.textContent = p.desc;
+    modalBuy.href = `${profile.purchaseUrl}?producto=${encodeURIComponent(p.id)}`;
+    modal.classList.add("open");
+  }
+
+  // ========= APPEAR ON SCROLL =========
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.14});
+
+  function hookReveals(ctx=document){
+    ctx.querySelectorAll('.reveal:not([data-observed])').forEach(el=>{
+      el.setAttribute('data-observed','');
+      io.observe(el);
+    });
+  }
+
+  // ========= INIT =========
+  function init(){
+    renderProducts();
+    renderContacts();
+    $("#btnAdquirir").href = profile.purchaseUrl;
+    $("#year").textContent = new Date().getFullYear();
+    $("#productsGrid").addEventListener("click", (e)=>{
+      const btn = e.target.closest("[data-open]");
+      if(btn){ onOpenProduct(btn.getAttribute("data-open")); }
+    });
+    hookReveals(document); // engancha lo que ya había en la página
+  }
+  init();
+</script>
+
+
+  <!-- SEO JSON-LD (opcional) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Roxana Albina Chalco Quesada",
+    "jobTitle": "Asesora y vendedora de café y té ORGANO",
+    "url": "https://caffedm.myorganogold.com/it-it/",
+    "sameAs": [
+      "https://www.facebook.com/franshesca.chalco"
+    ]
+  }
+  </script>
+</body>
+</html>
